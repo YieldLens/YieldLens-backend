@@ -1,6 +1,7 @@
 import express from 'express';
 import { config } from './config';
 import healthRouter from './routes/health';
+import positionsRouter from './routes/positions';
 
 const app = express();
 const PORT = config.port;
@@ -10,6 +11,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/health', healthRouter);
+app.use('/api/positions', positionsRouter);
 
 // Root route
 app.get('/', (_req, res) => {
