@@ -2,6 +2,7 @@ import express from 'express';
 import { config } from './config';
 import healthRouter from './routes/health';
 import positionsRouter from './routes/positions';
+import apyRouter from './routes/apy';
 
 const app = express();
 const PORT = config.port;
@@ -12,6 +13,7 @@ app.use(express.json());
 // Routes
 app.use('/api/health', healthRouter);
 app.use('/api/positions', positionsRouter);
+app.use('/api/apy', apyRouter);
 
 // Root route
 app.get('/', (_req, res) => {
